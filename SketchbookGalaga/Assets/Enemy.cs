@@ -4,23 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
-
-    public GameObject deathEffect;
-
-    public void TakeDamage(int damage)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        health -= damage;
-
-        if (health <= 0)
+        if (collision.gameObject.tag == "Bullet")
         {
-            Die();
+            Debug.Log("Hit");
+            Destroy(gameObject);
         }
-    }
-
-    void Die()
-    {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 }

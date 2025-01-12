@@ -7,16 +7,24 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 5f;
     public Rigidbody2D rb;
+    public float destroyValue = 2f;
 
 
     void Start()
     {
-        rb.velocity = transform.up * speed;
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.up * speed;
     }
 
-    void OnTriggerEnter2D (Collider2D hitInfo)
+    void Update()
     {
-        Debug.Log(hitInfo.name);
-        Destroy(gameObject);
+        DestroyAfterLeftScreen();
+    }
+    void DestroyAfterLeftScreen()
+    {
+        if (transform.position.y > destroyValue)
+        {
+            Destroy(gameObject);
+        }
     }
 }  

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform gunEndPosition;
 
-    public float fireRate = 0.2f;
+    public float fireRate = 0.6f;
     private float timeSinceLastAction = 0f;
 
     // Start is called before the first frame update
